@@ -1,0 +1,45 @@
+if(isMainModule)
+    apply plugin: "com.android.application"
+else
+    apply plugin: "com.android.library"
+android {
+
+    defaultConfig {
+        if(isMainModule)
+            applicationId "com.hefu.b_module_main"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    //统一资源前缀，规范资源引用
+    resourcePrefix "main_"
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (isMainModule) {
+                // app
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+               /* java {
+                    exclude '*module'
+                }
+                ???
+                resources {
+                    //正式版本时，排除debug文件夹下所有调试文件
+                    exclude 'src/main/debug/*'
+                }*/
+            } else {
+                // 做为组件module 使用时的清单文件
+                manifest.srcFile 'src/main/own/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hefu.b_module_login">
+
+    <application>
+        <activity android:name=".kotlin.KStartActivity"/>
+        <activity android:name=".kotlin.KMainActivity"/>
+        <activity android:name=".MainActivity"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,6 @@
+include ':b_module_main'
+include ':b_module_login'
+include ':f_module_common'
+include ':F_Module_Base'
+include ':app'
+rootProject.name = "AndroidStructure_1"
